@@ -1,49 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { SiteLayout } from "@/components/site/Layout";
+import { SectionRenderer } from "@/components/site/SectionRenderer";
+import { pageQueryOptions } from "@/lib/queries/pages";
+
+const SLUG = "western-australia";
 
 export const Route = createFileRoute("/western-australia")({
-  head: () => ({
+  loader: async ({ context }) => context.queryClient.ensureQueryData(pageQueryOptions(SLUG)),
+  head: ({ loaderData }) => ({
     meta: [
-      { title: "Western Australia — SEBWA" },
+      { title: loaderData?.seo?.title || "Western Australia — SEBWA" },
       {
         name: "description",
-        content: "Why Western Australia is a leading study destination for international students.",
+        content:
+          loaderData?.seo?.description ||
+          "Why Western Australia is a leading study destination for international students.",
       },
     ],
   }),
-  component: WesternAustralia,
+  component: WesternAustraliaPage,
 });
 
-function WesternAustralia() {
+function WesternAustraliaPage() {
+  const { data: page } = useSuspenseQuery(pageQueryOptions(SLUG));
   return (
-    <SiteLayout>
-      <div className="mx-auto max-w-5xl px-4 lg:px-8 py-14 lg:py-20 flex flex-col gap-10">
-        {/* Video 1 */}
-        <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-          <iframe
-            title="vimeo-player"
-            src="https://player.vimeo.com/video/760150280?h=a1a6dfebcb"
-            style={{ border: 0 }}
-            referrerPolicy="strict-origin-when-cross-origin"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-            allowFullScreen
-            className="absolute inset-0 w-full h-full"
-          />
-        </div>
-
-        {/* Video 2 */}
-        <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-          <iframe
-            title="vimeo-player"
-            src="https://player.vimeo.com/video/727188788?h=ac074d5513"
-            style={{ border: 0 }}
-            referrerPolicy="strict-origin-when-cross-origin"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-            allowFullScreen
-            className="absolute inset-0 w-full h-full"
-          />
-        </div>
-      </div>
-    </SiteLayout>
+    <SiteLayout>{page && <SectionRenderer sections={page.sections} pageSlug={SLUG} />}</SiteLayout>
   );
 }

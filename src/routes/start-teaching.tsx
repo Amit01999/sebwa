@@ -1,26 +1,30 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ContentPage } from "@/components/site/ContentPage";
+import { createFileRoute } from "@tanstack/react-router";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { SiteLayout } from "@/components/site/Layout";
+import { SectionRenderer } from "@/components/site/SectionRenderer";
+import { pageQueryOptions } from "@/lib/queries/pages";
+
+const SLUG = "start-teaching";
 
 export const Route = createFileRoute("/start-teaching")({
-  head: () => ({ meta: [{ title: "Start Teaching — SEBWA" }, { name: "description", content: "Get started teaching the Western Australian curriculum with SCSA guidance and professional learning." }] }),
-  component: () => (
-    <ContentPage
-      title="Start Teaching"
-      intro="Schools approved to deliver Western Australian curriculum programs receive guidance to support implementation and delivery."
-      blocks={[
-        { type: "p", text: "Members of the SCSA International team facilitate a Curriculum Activation Program and provide professional learning pathways to support curriculum delivery, including advice about teaching, assessment and reporting." },
-        { type: "h2", text: "Find out more" },
-        { type: "node", node: (
-          <div className="flex flex-wrap gap-3 not-prose">
-            <Link to="/curriculum-activation-program" className="inline-flex items-center rounded-sm bg-teal px-4 py-2 text-sm font-semibold text-teal-foreground hover:bg-teal/90">
-              Curriculum Activation Program
-            </Link>
-            <Link to="/professional-learning-pathways-and-support" className="inline-flex items-center rounded-sm bg-orange px-4 py-2 text-sm font-semibold text-white hover:bg-orange/90">
-              Professional Learning Pathways
-            </Link>
-          </div>
-        )},
-      ]}
-    />
-  ),
+  loader: async ({ context }) => context.queryClient.ensureQueryData(pageQueryOptions(SLUG)),
+  head: ({ loaderData }) => ({
+    meta: [
+      { title: loaderData?.seo?.title || "Start Teaching — SEBWA" },
+      {
+        name: "description",
+        content:
+          loaderData?.seo?.description ||
+          "Get started teaching the Western Australian curriculum with SCSA guidance and professional learning.",
+      },
+    ],
+  }),
+  component: StartTeachingPage,
 });
+
+function StartTeachingPage() {
+  const { data: page } = useSuspenseQuery(pageQueryOptions(SLUG));
+  return (
+    <SiteLayout>{page && <SectionRenderer sections={page.sections} pageSlug={SLUG} />}</SiteLayout>
+  );
+}

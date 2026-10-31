@@ -28,6 +28,21 @@ import { Route as CurriculumActivationProgramRouteImport } from './routes/curric
 import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminAuthedRouteImport } from './routes/admin/_authed'
+import { Route as AdminAuthedIndexRouteImport } from './routes/admin/_authed/index'
+import { Route as AdminAuthedSettingsRouteImport } from './routes/admin/_authed/settings'
+import { Route as AdminAuthedProfileRouteImport } from './routes/admin/_authed/profile'
+import { Route as AdminAuthedNavigationRouteImport } from './routes/admin/_authed/navigation'
+import { Route as AdminAuthedUsersIndexRouteImport } from './routes/admin/_authed/users/index'
+import { Route as AdminAuthedSubmissionsIndexRouteImport } from './routes/admin/_authed/submissions/index'
+import { Route as AdminAuthedPagesIndexRouteImport } from './routes/admin/_authed/pages/index'
+import { Route as AdminAuthedMediaIndexRouteImport } from './routes/admin/_authed/media/index'
+import { Route as AdminAuthedFragmentsIndexRouteImport } from './routes/admin/_authed/fragments/index'
+import { Route as AdminAuthedUsersNewRouteImport } from './routes/admin/_authed/users/new'
+import { Route as AdminAuthedSubmissionsIdRouteImport } from './routes/admin/_authed/submissions/$id'
+import { Route as AdminAuthedPagesSlugRouteImport } from './routes/admin/_authed/pages/$slug'
+import { Route as AdminAuthedFragmentsKeyRouteImport } from './routes/admin/_authed/fragments/$key'
 
 const WhyUsRoute = WhyUsRouteImport.update({
   id: '/why-us',
@@ -131,6 +146,84 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAuthedRoute = AdminAuthedRouteImport.update({
+  id: '/admin/_authed',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAuthedIndexRoute = AdminAuthedIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedSettingsRoute = AdminAuthedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedProfileRoute = AdminAuthedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedNavigationRoute = AdminAuthedNavigationRouteImport.update({
+  id: '/navigation',
+  path: '/navigation',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedUsersIndexRoute = AdminAuthedUsersIndexRouteImport.update({
+  id: '/users/',
+  path: '/users/',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedSubmissionsIndexRoute =
+  AdminAuthedSubmissionsIndexRouteImport.update({
+    id: '/submissions/',
+    path: '/submissions/',
+    getParentRoute: () => AdminAuthedRoute,
+  } as any)
+const AdminAuthedPagesIndexRoute = AdminAuthedPagesIndexRouteImport.update({
+  id: '/pages/',
+  path: '/pages/',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedMediaIndexRoute = AdminAuthedMediaIndexRouteImport.update({
+  id: '/media/',
+  path: '/media/',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedFragmentsIndexRoute =
+  AdminAuthedFragmentsIndexRouteImport.update({
+    id: '/fragments/',
+    path: '/fragments/',
+    getParentRoute: () => AdminAuthedRoute,
+  } as any)
+const AdminAuthedUsersNewRoute = AdminAuthedUsersNewRouteImport.update({
+  id: '/users/new',
+  path: '/users/new',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedSubmissionsIdRoute =
+  AdminAuthedSubmissionsIdRouteImport.update({
+    id: '/submissions/$id',
+    path: '/submissions/$id',
+    getParentRoute: () => AdminAuthedRoute,
+  } as any)
+const AdminAuthedPagesSlugRoute = AdminAuthedPagesSlugRouteImport.update({
+  id: '/pages/$slug',
+  path: '/pages/$slug',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedFragmentsKeyRoute = AdminAuthedFragmentsKeyRouteImport.update({
+  id: '/fragments/$key',
+  path: '/fragments/$key',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -152,6 +245,21 @@ export interface FileRoutesByFullPath {
   '/western-australia': typeof WesternAustraliaRoute
   '/western-australian-curriculum-programs': typeof WesternAustralianCurriculumProgramsRoute
   '/why-us': typeof WhyUsRoute
+  '/admin': typeof AdminAuthedRouteWithChildren
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/navigation': typeof AdminAuthedNavigationRoute
+  '/admin/profile': typeof AdminAuthedProfileRoute
+  '/admin/settings': typeof AdminAuthedSettingsRoute
+  '/admin/': typeof AdminAuthedIndexRoute
+  '/admin/fragments/$key': typeof AdminAuthedFragmentsKeyRoute
+  '/admin/pages/$slug': typeof AdminAuthedPagesSlugRoute
+  '/admin/submissions/$id': typeof AdminAuthedSubmissionsIdRoute
+  '/admin/users/new': typeof AdminAuthedUsersNewRoute
+  '/admin/fragments/': typeof AdminAuthedFragmentsIndexRoute
+  '/admin/media/': typeof AdminAuthedMediaIndexRoute
+  '/admin/pages/': typeof AdminAuthedPagesIndexRoute
+  '/admin/submissions/': typeof AdminAuthedSubmissionsIndexRoute
+  '/admin/users/': typeof AdminAuthedUsersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -173,6 +281,20 @@ export interface FileRoutesByTo {
   '/western-australia': typeof WesternAustraliaRoute
   '/western-australian-curriculum-programs': typeof WesternAustralianCurriculumProgramsRoute
   '/why-us': typeof WhyUsRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/navigation': typeof AdminAuthedNavigationRoute
+  '/admin/profile': typeof AdminAuthedProfileRoute
+  '/admin/settings': typeof AdminAuthedSettingsRoute
+  '/admin': typeof AdminAuthedIndexRoute
+  '/admin/fragments/$key': typeof AdminAuthedFragmentsKeyRoute
+  '/admin/pages/$slug': typeof AdminAuthedPagesSlugRoute
+  '/admin/submissions/$id': typeof AdminAuthedSubmissionsIdRoute
+  '/admin/users/new': typeof AdminAuthedUsersNewRoute
+  '/admin/fragments': typeof AdminAuthedFragmentsIndexRoute
+  '/admin/media': typeof AdminAuthedMediaIndexRoute
+  '/admin/pages': typeof AdminAuthedPagesIndexRoute
+  '/admin/submissions': typeof AdminAuthedSubmissionsIndexRoute
+  '/admin/users': typeof AdminAuthedUsersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -195,6 +317,21 @@ export interface FileRoutesById {
   '/western-australia': typeof WesternAustraliaRoute
   '/western-australian-curriculum-programs': typeof WesternAustralianCurriculumProgramsRoute
   '/why-us': typeof WhyUsRoute
+  '/admin/_authed': typeof AdminAuthedRouteWithChildren
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/_authed/navigation': typeof AdminAuthedNavigationRoute
+  '/admin/_authed/profile': typeof AdminAuthedProfileRoute
+  '/admin/_authed/settings': typeof AdminAuthedSettingsRoute
+  '/admin/_authed/': typeof AdminAuthedIndexRoute
+  '/admin/_authed/fragments/$key': typeof AdminAuthedFragmentsKeyRoute
+  '/admin/_authed/pages/$slug': typeof AdminAuthedPagesSlugRoute
+  '/admin/_authed/submissions/$id': typeof AdminAuthedSubmissionsIdRoute
+  '/admin/_authed/users/new': typeof AdminAuthedUsersNewRoute
+  '/admin/_authed/fragments/': typeof AdminAuthedFragmentsIndexRoute
+  '/admin/_authed/media/': typeof AdminAuthedMediaIndexRoute
+  '/admin/_authed/pages/': typeof AdminAuthedPagesIndexRoute
+  '/admin/_authed/submissions/': typeof AdminAuthedSubmissionsIndexRoute
+  '/admin/_authed/users/': typeof AdminAuthedUsersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -218,6 +355,21 @@ export interface FileRouteTypes {
     | '/western-australia'
     | '/western-australian-curriculum-programs'
     | '/why-us'
+    | '/admin'
+    | '/admin/login'
+    | '/admin/navigation'
+    | '/admin/profile'
+    | '/admin/settings'
+    | '/admin/'
+    | '/admin/fragments/$key'
+    | '/admin/pages/$slug'
+    | '/admin/submissions/$id'
+    | '/admin/users/new'
+    | '/admin/fragments/'
+    | '/admin/media/'
+    | '/admin/pages/'
+    | '/admin/submissions/'
+    | '/admin/users/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -239,6 +391,20 @@ export interface FileRouteTypes {
     | '/western-australia'
     | '/western-australian-curriculum-programs'
     | '/why-us'
+    | '/admin/login'
+    | '/admin/navigation'
+    | '/admin/profile'
+    | '/admin/settings'
+    | '/admin'
+    | '/admin/fragments/$key'
+    | '/admin/pages/$slug'
+    | '/admin/submissions/$id'
+    | '/admin/users/new'
+    | '/admin/fragments'
+    | '/admin/media'
+    | '/admin/pages'
+    | '/admin/submissions'
+    | '/admin/users'
   id:
     | '__root__'
     | '/'
@@ -260,6 +426,21 @@ export interface FileRouteTypes {
     | '/western-australia'
     | '/western-australian-curriculum-programs'
     | '/why-us'
+    | '/admin/_authed'
+    | '/admin/login'
+    | '/admin/_authed/navigation'
+    | '/admin/_authed/profile'
+    | '/admin/_authed/settings'
+    | '/admin/_authed/'
+    | '/admin/_authed/fragments/$key'
+    | '/admin/_authed/pages/$slug'
+    | '/admin/_authed/submissions/$id'
+    | '/admin/_authed/users/new'
+    | '/admin/_authed/fragments/'
+    | '/admin/_authed/media/'
+    | '/admin/_authed/pages/'
+    | '/admin/_authed/submissions/'
+    | '/admin/_authed/users/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -282,6 +463,8 @@ export interface RootRouteChildren {
   WesternAustraliaRoute: typeof WesternAustraliaRoute
   WesternAustralianCurriculumProgramsRoute: typeof WesternAustralianCurriculumProgramsRoute
   WhyUsRoute: typeof WhyUsRoute
+  AdminAuthedRoute: typeof AdminAuthedRouteWithChildren
+  AdminLoginRoute: typeof AdminLoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -419,8 +602,149 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/_authed': {
+      id: '/admin/_authed'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminAuthedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/_authed/': {
+      id: '/admin/_authed/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminAuthedIndexRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/settings': {
+      id: '/admin/_authed/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminAuthedSettingsRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/profile': {
+      id: '/admin/_authed/profile'
+      path: '/profile'
+      fullPath: '/admin/profile'
+      preLoaderRoute: typeof AdminAuthedProfileRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/navigation': {
+      id: '/admin/_authed/navigation'
+      path: '/navigation'
+      fullPath: '/admin/navigation'
+      preLoaderRoute: typeof AdminAuthedNavigationRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/users/': {
+      id: '/admin/_authed/users/'
+      path: '/users'
+      fullPath: '/admin/users/'
+      preLoaderRoute: typeof AdminAuthedUsersIndexRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/submissions/': {
+      id: '/admin/_authed/submissions/'
+      path: '/submissions'
+      fullPath: '/admin/submissions/'
+      preLoaderRoute: typeof AdminAuthedSubmissionsIndexRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/pages/': {
+      id: '/admin/_authed/pages/'
+      path: '/pages'
+      fullPath: '/admin/pages/'
+      preLoaderRoute: typeof AdminAuthedPagesIndexRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/media/': {
+      id: '/admin/_authed/media/'
+      path: '/media'
+      fullPath: '/admin/media/'
+      preLoaderRoute: typeof AdminAuthedMediaIndexRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/fragments/': {
+      id: '/admin/_authed/fragments/'
+      path: '/fragments'
+      fullPath: '/admin/fragments/'
+      preLoaderRoute: typeof AdminAuthedFragmentsIndexRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/users/new': {
+      id: '/admin/_authed/users/new'
+      path: '/users/new'
+      fullPath: '/admin/users/new'
+      preLoaderRoute: typeof AdminAuthedUsersNewRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/submissions/$id': {
+      id: '/admin/_authed/submissions/$id'
+      path: '/submissions/$id'
+      fullPath: '/admin/submissions/$id'
+      preLoaderRoute: typeof AdminAuthedSubmissionsIdRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/pages/$slug': {
+      id: '/admin/_authed/pages/$slug'
+      path: '/pages/$slug'
+      fullPath: '/admin/pages/$slug'
+      preLoaderRoute: typeof AdminAuthedPagesSlugRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/fragments/$key': {
+      id: '/admin/_authed/fragments/$key'
+      path: '/fragments/$key'
+      fullPath: '/admin/fragments/$key'
+      preLoaderRoute: typeof AdminAuthedFragmentsKeyRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
   }
 }
+
+interface AdminAuthedRouteChildren {
+  AdminAuthedNavigationRoute: typeof AdminAuthedNavigationRoute
+  AdminAuthedProfileRoute: typeof AdminAuthedProfileRoute
+  AdminAuthedSettingsRoute: typeof AdminAuthedSettingsRoute
+  AdminAuthedIndexRoute: typeof AdminAuthedIndexRoute
+  AdminAuthedFragmentsKeyRoute: typeof AdminAuthedFragmentsKeyRoute
+  AdminAuthedPagesSlugRoute: typeof AdminAuthedPagesSlugRoute
+  AdminAuthedSubmissionsIdRoute: typeof AdminAuthedSubmissionsIdRoute
+  AdminAuthedUsersNewRoute: typeof AdminAuthedUsersNewRoute
+  AdminAuthedFragmentsIndexRoute: typeof AdminAuthedFragmentsIndexRoute
+  AdminAuthedMediaIndexRoute: typeof AdminAuthedMediaIndexRoute
+  AdminAuthedPagesIndexRoute: typeof AdminAuthedPagesIndexRoute
+  AdminAuthedSubmissionsIndexRoute: typeof AdminAuthedSubmissionsIndexRoute
+  AdminAuthedUsersIndexRoute: typeof AdminAuthedUsersIndexRoute
+}
+
+const AdminAuthedRouteChildren: AdminAuthedRouteChildren = {
+  AdminAuthedNavigationRoute: AdminAuthedNavigationRoute,
+  AdminAuthedProfileRoute: AdminAuthedProfileRoute,
+  AdminAuthedSettingsRoute: AdminAuthedSettingsRoute,
+  AdminAuthedIndexRoute: AdminAuthedIndexRoute,
+  AdminAuthedFragmentsKeyRoute: AdminAuthedFragmentsKeyRoute,
+  AdminAuthedPagesSlugRoute: AdminAuthedPagesSlugRoute,
+  AdminAuthedSubmissionsIdRoute: AdminAuthedSubmissionsIdRoute,
+  AdminAuthedUsersNewRoute: AdminAuthedUsersNewRoute,
+  AdminAuthedFragmentsIndexRoute: AdminAuthedFragmentsIndexRoute,
+  AdminAuthedMediaIndexRoute: AdminAuthedMediaIndexRoute,
+  AdminAuthedPagesIndexRoute: AdminAuthedPagesIndexRoute,
+  AdminAuthedSubmissionsIndexRoute: AdminAuthedSubmissionsIndexRoute,
+  AdminAuthedUsersIndexRoute: AdminAuthedUsersIndexRoute,
+}
+
+const AdminAuthedRouteWithChildren = AdminAuthedRoute._addFileChildren(
+  AdminAuthedRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -446,6 +770,8 @@ const rootRouteChildren: RootRouteChildren = {
   WesternAustralianCurriculumProgramsRoute:
     WesternAustralianCurriculumProgramsRoute,
   WhyUsRoute: WhyUsRoute,
+  AdminAuthedRoute: AdminAuthedRouteWithChildren,
+  AdminLoginRoute: AdminLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

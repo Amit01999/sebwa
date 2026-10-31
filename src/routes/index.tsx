@@ -1,37 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { SiteLayout } from "@/components/site/Layout";
-import { Hero } from "@/components/site/Hero";
-import { About } from "@/components/site/About";
-import { Programs } from "@/components/site/Programs";
-import { WhyWace } from "@/components/site/WhyWace";
-import { Universities } from "@/components/site/Universities";
-import { CTA } from "@/components/site/CTA";
+import { SectionRenderer } from "@/components/site/SectionRenderer";
+import { pageQueryOptions } from "@/lib/queries/pages";
+
+const SLUG = "home";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "SEBWA — Sunshine Education Bangladesh WACE Australia" },
-      {
-        name: "description",
-        content:
-          "SEBWA brings the Western Australian Curriculum to schools across Bangladesh — world-class programs, structured support and professional learning.",
-      },
-      { property: "og:title", content: "SEBWA — Western Australian Curriculum in Bangladesh" },
-      { property: "og:description", content: "Join SEBWA's family of schools leading the way to a world of opportunity." },
-    ],
-  }),
+  loader: async ({ context }) => context.queryClient.ensureQueryData(pageQueryOptions(SLUG)),
+  head: ({ loaderData }) => {
+    const title = loaderData?.seo?.title || "SEBWA — Sunshine Education Bangladesh WACE Australia";
+    const description =
+      loaderData?.seo?.description ||
+      "SEBWA brings the Western Australian Curriculum to schools across Bangladesh — world-class programs, structured support and professional learning.";
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+      ],
+    };
+  },
   component: Index,
 });
 
 function Index() {
+  const { data: page } = useSuspenseQuery(pageQueryOptions(SLUG));
   return (
-    <SiteLayout>
-      <Hero />
-      <About />
-      <Programs />
-      <WhyWace />
-      <Universities />
-      <CTA />
-    </SiteLayout>
+    <SiteLayout>{page && <SectionRenderer sections={page.sections} pageSlug={SLUG} />}</SiteLayout>
   );
 }

@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { navigationQueryOptions } from "../lib/queries/navigation";
+import { settingsQueryOptions } from "../lib/queries/settings";
 
 function NotFoundComponent() {
   return (
@@ -73,6 +75,14 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  loader: async ({ context }) => {
+    // Shared by Header/Footer on every page — fetched once here so they
+    // render with SSR'd data instead of each page re-fetching it.
+    await Promise.all([
+      context.queryClient.ensureQueryData(navigationQueryOptions()),
+      context.queryClient.ensureQueryData(settingsQueryOptions()),
+    ]);
+  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
