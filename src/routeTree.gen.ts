@@ -9,120 +9,54 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WhyUsRouteImport } from './routes/why-us'
-import { Route as WesternAustralianCurriculumProgramsRouteImport } from './routes/western-australian-curriculum-programs'
-import { Route as WesternAustraliaRouteImport } from './routes/western-australia'
-import { Route as WamInternationalYear12RouteImport } from './routes/wam-international-year-12'
-import { Route as WaceInternationalYears11And12RouteImport } from './routes/wace-international-years-11-and-12'
-import { Route as WaK10InternationalKindergartenToYear10RouteImport } from './routes/wa-k-10-international-kindergarten-to-year-10'
-import { Route as WaEarlyYearsInternationalKindergartenToYear2RouteImport } from './routes/wa-early-years-international-kindergarten-to-year-2'
-import { Route as TheWesternAustralianCurriculumRouteImport } from './routes/the-western-australian-curriculum'
-import { Route as TheScsaAndSebwaRouteImport } from './routes/the-scsa-and-sebwa'
-import { Route as StartTeachingRouteImport } from './routes/start-teaching'
-import { Route as ScsaInternationalTeamRouteImport } from './routes/scsa-international-team'
-import { Route as ScsaInternationalRouteImport } from './routes/scsa-international'
-import { Route as SchoolApprovalProcessRouteImport } from './routes/school-approval-process'
-import { Route as ProfessionalLearningPathwaysAndSupportRouteImport } from './routes/professional-learning-pathways-and-support'
-import { Route as HowDoIApplyRouteImport } from './routes/how-do-i-apply'
-import { Route as CurriculumActivationProgramRouteImport } from './routes/curriculum-activation-program'
-import { Route as ContactUsRouteImport } from './routes/contact-us'
-import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AboutUsRouteImport } from './routes/about-us'
+import { Route as ContactUsRouteImport } from './routes/contact-us'
+import { Route as CurriculumActivationProgramRouteImport } from './routes/curriculum-activation-program'
+import { Route as HowDoIApplyRouteImport } from './routes/how-do-i-apply'
+import { Route as ProfessionalLearningPathwaysAndSupportRouteImport } from './routes/professional-learning-pathways-and-support'
+import { Route as SchoolApprovalProcessRouteImport } from './routes/school-approval-process'
+import { Route as ScsaInternationalRouteImport } from './routes/scsa-international'
+import { Route as ScsaInternationalTeamRouteImport } from './routes/scsa-international-team'
+import { Route as StartTeachingRouteImport } from './routes/start-teaching'
+import { Route as TheScsaAndSebwaRouteImport } from './routes/the-scsa-and-sebwa'
+import { Route as TheWesternAustralianCurriculumRouteImport } from './routes/the-western-australian-curriculum'
+import { Route as WaEarlyYearsInternationalKindergartenToYear2RouteImport } from './routes/wa-early-years-international-kindergarten-to-year-2'
+import { Route as WaK10InternationalKindergartenToYear10RouteImport } from './routes/wa-k-10-international-kindergarten-to-year-10'
+import { Route as WaceInternationalYears11And12RouteImport } from './routes/wace-international-years-11-and-12'
+import { Route as WamInternationalYear12RouteImport } from './routes/wam-international-year-12'
+import { Route as WesternAustraliaRouteImport } from './routes/western-australia'
+import { Route as WesternAustralianCurriculumProgramsRouteImport } from './routes/western-australian-curriculum-programs'
+import { Route as WhyUsRouteImport } from './routes/why-us'
 import { Route as AdminAuthedRouteImport } from './routes/admin/_authed'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as AdminAuthedIndexRouteImport } from './routes/admin/_authed/index'
-import { Route as AdminAuthedSettingsRouteImport } from './routes/admin/_authed/settings'
-import { Route as AdminAuthedProfileRouteImport } from './routes/admin/_authed/profile'
 import { Route as AdminAuthedNavigationRouteImport } from './routes/admin/_authed/navigation'
-import { Route as AdminAuthedUsersIndexRouteImport } from './routes/admin/_authed/users/index'
-import { Route as AdminAuthedSubmissionsIndexRouteImport } from './routes/admin/_authed/submissions/index'
-import { Route as AdminAuthedPagesIndexRouteImport } from './routes/admin/_authed/pages/index'
-import { Route as AdminAuthedMediaIndexRouteImport } from './routes/admin/_authed/media/index'
+import { Route as AdminAuthedProfileRouteImport } from './routes/admin/_authed/profile'
+import { Route as AdminAuthedSettingsRouteImport } from './routes/admin/_authed/settings'
 import { Route as AdminAuthedFragmentsIndexRouteImport } from './routes/admin/_authed/fragments/index'
-import { Route as AdminAuthedUsersNewRouteImport } from './routes/admin/_authed/users/new'
-import { Route as AdminAuthedSubmissionsIdRouteImport } from './routes/admin/_authed/submissions/$id'
-import { Route as AdminAuthedPagesSlugRouteImport } from './routes/admin/_authed/pages/$slug'
 import { Route as AdminAuthedFragmentsKeyRouteImport } from './routes/admin/_authed/fragments/$key'
+import { Route as AdminAuthedMediaIndexRouteImport } from './routes/admin/_authed/media/index'
+import { Route as AdminAuthedPagesIndexRouteImport } from './routes/admin/_authed/pages/index'
+import { Route as AdminAuthedPagesSlugRouteImport } from './routes/admin/_authed/pages/$slug'
+import { Route as AdminAuthedSubmissionsIndexRouteImport } from './routes/admin/_authed/submissions/index'
+import { Route as AdminAuthedSubmissionsIdRouteImport } from './routes/admin/_authed/submissions/$id'
+import { Route as AdminAuthedUsersIndexRouteImport } from './routes/admin/_authed/users/index'
+import { Route as AdminAuthedUsersNewRouteImport } from './routes/admin/_authed/users/new'
 
-const WhyUsRoute = WhyUsRouteImport.update({
-  id: '/why-us',
-  path: '/why-us',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WesternAustralianCurriculumProgramsRoute =
-  WesternAustralianCurriculumProgramsRouteImport.update({
-    id: '/western-australian-curriculum-programs',
-    path: '/western-australian-curriculum-programs',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const WesternAustraliaRoute = WesternAustraliaRouteImport.update({
-  id: '/western-australia',
-  path: '/western-australia',
+const AboutUsRoute = AboutUsRouteImport.update({
+  id: '/about-us',
+  path: '/about-us',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WamInternationalYear12Route = WamInternationalYear12RouteImport.update({
-  id: '/wam-international-year-12',
-  path: '/wam-international-year-12',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WaceInternationalYears11And12Route =
-  WaceInternationalYears11And12RouteImport.update({
-    id: '/wace-international-years-11-and-12',
-    path: '/wace-international-years-11-and-12',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const WaK10InternationalKindergartenToYear10Route =
-  WaK10InternationalKindergartenToYear10RouteImport.update({
-    id: '/wa-k-10-international-kindergarten-to-year-10',
-    path: '/wa-k-10-international-kindergarten-to-year-10',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const WaEarlyYearsInternationalKindergartenToYear2Route =
-  WaEarlyYearsInternationalKindergartenToYear2RouteImport.update({
-    id: '/wa-early-years-international-kindergarten-to-year-2',
-    path: '/wa-early-years-international-kindergarten-to-year-2',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const TheWesternAustralianCurriculumRoute =
-  TheWesternAustralianCurriculumRouteImport.update({
-    id: '/the-western-australian-curriculum',
-    path: '/the-western-australian-curriculum',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const TheScsaAndSebwaRoute = TheScsaAndSebwaRouteImport.update({
-  id: '/the-scsa-and-sebwa',
-  path: '/the-scsa-and-sebwa',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const StartTeachingRoute = StartTeachingRouteImport.update({
-  id: '/start-teaching',
-  path: '/start-teaching',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ScsaInternationalTeamRoute = ScsaInternationalTeamRouteImport.update({
-  id: '/scsa-international-team',
-  path: '/scsa-international-team',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ScsaInternationalRoute = ScsaInternationalRouteImport.update({
-  id: '/scsa-international',
-  path: '/scsa-international',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SchoolApprovalProcessRoute = SchoolApprovalProcessRouteImport.update({
-  id: '/school-approval-process',
-  path: '/school-approval-process',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProfessionalLearningPathwaysAndSupportRoute =
-  ProfessionalLearningPathwaysAndSupportRouteImport.update({
-    id: '/professional-learning-pathways-and-support',
-    path: '/professional-learning-pathways-and-support',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const HowDoIApplyRoute = HowDoIApplyRouteImport.update({
-  id: '/how-do-i-apply',
-  path: '/how-do-i-apply',
+const ContactUsRoute = ContactUsRouteImport.update({
+  id: '/contact-us',
+  path: '/contact-us',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CurriculumActivationProgramRoute =
@@ -131,24 +65,85 @@ const CurriculumActivationProgramRoute =
     path: '/curriculum-activation-program',
     getParentRoute: () => rootRouteImport,
   } as any)
-const ContactUsRoute = ContactUsRouteImport.update({
-  id: '/contact-us',
-  path: '/contact-us',
+const HowDoIApplyRoute = HowDoIApplyRouteImport.update({
+  id: '/how-do-i-apply',
+  path: '/how-do-i-apply',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutUsRoute = AboutUsRouteImport.update({
-  id: '/about-us',
-  path: '/about-us',
+const ProfessionalLearningPathwaysAndSupportRoute =
+  ProfessionalLearningPathwaysAndSupportRouteImport.update({
+    id: '/professional-learning-pathways-and-support',
+    path: '/professional-learning-pathways-and-support',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SchoolApprovalProcessRoute = SchoolApprovalProcessRouteImport.update({
+  id: '/school-approval-process',
+  path: '/school-approval-process',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ScsaInternationalRoute = ScsaInternationalRouteImport.update({
+  id: '/scsa-international',
+  path: '/scsa-international',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/admin/login',
-  path: '/admin/login',
+const ScsaInternationalTeamRoute = ScsaInternationalTeamRouteImport.update({
+  id: '/scsa-international-team',
+  path: '/scsa-international-team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartTeachingRoute = StartTeachingRouteImport.update({
+  id: '/start-teaching',
+  path: '/start-teaching',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheScsaAndSebwaRoute = TheScsaAndSebwaRouteImport.update({
+  id: '/the-scsa-and-sebwa',
+  path: '/the-scsa-and-sebwa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheWesternAustralianCurriculumRoute =
+  TheWesternAustralianCurriculumRouteImport.update({
+    id: '/the-western-australian-curriculum',
+    path: '/the-western-australian-curriculum',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WaEarlyYearsInternationalKindergartenToYear2Route =
+  WaEarlyYearsInternationalKindergartenToYear2RouteImport.update({
+    id: '/wa-early-years-international-kindergarten-to-year-2',
+    path: '/wa-early-years-international-kindergarten-to-year-2',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WaK10InternationalKindergartenToYear10Route =
+  WaK10InternationalKindergartenToYear10RouteImport.update({
+    id: '/wa-k-10-international-kindergarten-to-year-10',
+    path: '/wa-k-10-international-kindergarten-to-year-10',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WaceInternationalYears11And12Route =
+  WaceInternationalYears11And12RouteImport.update({
+    id: '/wace-international-years-11-and-12',
+    path: '/wace-international-years-11-and-12',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WamInternationalYear12Route = WamInternationalYear12RouteImport.update({
+  id: '/wam-international-year-12',
+  path: '/wam-international-year-12',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WesternAustraliaRoute = WesternAustraliaRouteImport.update({
+  id: '/western-australia',
+  path: '/western-australia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WesternAustralianCurriculumProgramsRoute =
+  WesternAustralianCurriculumProgramsRouteImport.update({
+    id: '/western-australian-curriculum-programs',
+    path: '/western-australian-curriculum-programs',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WhyUsRoute = WhyUsRouteImport.update({
+  id: '/why-us',
+  path: '/why-us',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminAuthedRoute = AdminAuthedRouteImport.update({
@@ -156,19 +151,14 @@ const AdminAuthedRoute = AdminAuthedRouteImport.update({
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminAuthedIndexRoute = AdminAuthedIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AdminAuthedRoute,
-} as any)
-const AdminAuthedSettingsRoute = AdminAuthedSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => AdminAuthedRoute,
-} as any)
-const AdminAuthedProfileRoute = AdminAuthedProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
   getParentRoute: () => AdminAuthedRoute,
 } as any)
 const AdminAuthedNavigationRoute = AdminAuthedNavigationRouteImport.update({
@@ -176,25 +166,14 @@ const AdminAuthedNavigationRoute = AdminAuthedNavigationRouteImport.update({
   path: '/navigation',
   getParentRoute: () => AdminAuthedRoute,
 } as any)
-const AdminAuthedUsersIndexRoute = AdminAuthedUsersIndexRouteImport.update({
-  id: '/users/',
-  path: '/users/',
+const AdminAuthedProfileRoute = AdminAuthedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => AdminAuthedRoute,
 } as any)
-const AdminAuthedSubmissionsIndexRoute =
-  AdminAuthedSubmissionsIndexRouteImport.update({
-    id: '/submissions/',
-    path: '/submissions/',
-    getParentRoute: () => AdminAuthedRoute,
-  } as any)
-const AdminAuthedPagesIndexRoute = AdminAuthedPagesIndexRouteImport.update({
-  id: '/pages/',
-  path: '/pages/',
-  getParentRoute: () => AdminAuthedRoute,
-} as any)
-const AdminAuthedMediaIndexRoute = AdminAuthedMediaIndexRouteImport.update({
-  id: '/media/',
-  path: '/media/',
+const AdminAuthedSettingsRoute = AdminAuthedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => AdminAuthedRoute,
 } as any)
 const AdminAuthedFragmentsIndexRoute =
@@ -203,25 +182,46 @@ const AdminAuthedFragmentsIndexRoute =
     path: '/fragments/',
     getParentRoute: () => AdminAuthedRoute,
   } as any)
-const AdminAuthedUsersNewRoute = AdminAuthedUsersNewRouteImport.update({
-  id: '/users/new',
-  path: '/users/new',
+const AdminAuthedFragmentsKeyRoute = AdminAuthedFragmentsKeyRouteImport.update({
+  id: '/fragments/$key',
+  path: '/fragments/$key',
   getParentRoute: () => AdminAuthedRoute,
 } as any)
+const AdminAuthedMediaIndexRoute = AdminAuthedMediaIndexRouteImport.update({
+  id: '/media/',
+  path: '/media/',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedPagesIndexRoute = AdminAuthedPagesIndexRouteImport.update({
+  id: '/pages/',
+  path: '/pages/',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedPagesSlugRoute = AdminAuthedPagesSlugRouteImport.update({
+  id: '/pages/$slug',
+  path: '/pages/$slug',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedSubmissionsIndexRoute =
+  AdminAuthedSubmissionsIndexRouteImport.update({
+    id: '/submissions/',
+    path: '/submissions/',
+    getParentRoute: () => AdminAuthedRoute,
+  } as any)
 const AdminAuthedSubmissionsIdRoute =
   AdminAuthedSubmissionsIdRouteImport.update({
     id: '/submissions/$id',
     path: '/submissions/$id',
     getParentRoute: () => AdminAuthedRoute,
   } as any)
-const AdminAuthedPagesSlugRoute = AdminAuthedPagesSlugRouteImport.update({
-  id: '/pages/$slug',
-  path: '/pages/$slug',
+const AdminAuthedUsersIndexRoute = AdminAuthedUsersIndexRouteImport.update({
+  id: '/users/',
+  path: '/users/',
   getParentRoute: () => AdminAuthedRoute,
 } as any)
-const AdminAuthedFragmentsKeyRoute = AdminAuthedFragmentsKeyRouteImport.update({
-  id: '/fragments/$key',
-  path: '/fragments/$key',
+const AdminAuthedUsersNewRoute = AdminAuthedUsersNewRouteImport.update({
+  id: '/users/new',
+  path: '/users/new',
   getParentRoute: () => AdminAuthedRoute,
 } as any)
 
@@ -469,123 +469,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/why-us': {
-      id: '/why-us'
-      path: '/why-us'
-      fullPath: '/why-us'
-      preLoaderRoute: typeof WhyUsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/western-australian-curriculum-programs': {
-      id: '/western-australian-curriculum-programs'
-      path: '/western-australian-curriculum-programs'
-      fullPath: '/western-australian-curriculum-programs'
-      preLoaderRoute: typeof WesternAustralianCurriculumProgramsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/western-australia': {
-      id: '/western-australia'
-      path: '/western-australia'
-      fullPath: '/western-australia'
-      preLoaderRoute: typeof WesternAustraliaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/wam-international-year-12': {
-      id: '/wam-international-year-12'
-      path: '/wam-international-year-12'
-      fullPath: '/wam-international-year-12'
-      preLoaderRoute: typeof WamInternationalYear12RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/wace-international-years-11-and-12': {
-      id: '/wace-international-years-11-and-12'
-      path: '/wace-international-years-11-and-12'
-      fullPath: '/wace-international-years-11-and-12'
-      preLoaderRoute: typeof WaceInternationalYears11And12RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/wa-k-10-international-kindergarten-to-year-10': {
-      id: '/wa-k-10-international-kindergarten-to-year-10'
-      path: '/wa-k-10-international-kindergarten-to-year-10'
-      fullPath: '/wa-k-10-international-kindergarten-to-year-10'
-      preLoaderRoute: typeof WaK10InternationalKindergartenToYear10RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/wa-early-years-international-kindergarten-to-year-2': {
-      id: '/wa-early-years-international-kindergarten-to-year-2'
-      path: '/wa-early-years-international-kindergarten-to-year-2'
-      fullPath: '/wa-early-years-international-kindergarten-to-year-2'
-      preLoaderRoute: typeof WaEarlyYearsInternationalKindergartenToYear2RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/the-western-australian-curriculum': {
-      id: '/the-western-australian-curriculum'
-      path: '/the-western-australian-curriculum'
-      fullPath: '/the-western-australian-curriculum'
-      preLoaderRoute: typeof TheWesternAustralianCurriculumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/the-scsa-and-sebwa': {
-      id: '/the-scsa-and-sebwa'
-      path: '/the-scsa-and-sebwa'
-      fullPath: '/the-scsa-and-sebwa'
-      preLoaderRoute: typeof TheScsaAndSebwaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/start-teaching': {
-      id: '/start-teaching'
-      path: '/start-teaching'
-      fullPath: '/start-teaching'
-      preLoaderRoute: typeof StartTeachingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/scsa-international-team': {
-      id: '/scsa-international-team'
-      path: '/scsa-international-team'
-      fullPath: '/scsa-international-team'
-      preLoaderRoute: typeof ScsaInternationalTeamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/scsa-international': {
-      id: '/scsa-international'
-      path: '/scsa-international'
-      fullPath: '/scsa-international'
-      preLoaderRoute: typeof ScsaInternationalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/school-approval-process': {
-      id: '/school-approval-process'
-      path: '/school-approval-process'
-      fullPath: '/school-approval-process'
-      preLoaderRoute: typeof SchoolApprovalProcessRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/professional-learning-pathways-and-support': {
-      id: '/professional-learning-pathways-and-support'
-      path: '/professional-learning-pathways-and-support'
-      fullPath: '/professional-learning-pathways-and-support'
-      preLoaderRoute: typeof ProfessionalLearningPathwaysAndSupportRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/how-do-i-apply': {
-      id: '/how-do-i-apply'
-      path: '/how-do-i-apply'
-      fullPath: '/how-do-i-apply'
-      preLoaderRoute: typeof HowDoIApplyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/curriculum-activation-program': {
-      id: '/curriculum-activation-program'
-      path: '/curriculum-activation-program'
-      fullPath: '/curriculum-activation-program'
-      preLoaderRoute: typeof CurriculumActivationProgramRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact-us': {
-      id: '/contact-us'
-      path: '/contact-us'
-      fullPath: '/contact-us'
-      preLoaderRoute: typeof ContactUsRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about-us': {
@@ -595,18 +483,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutUsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/contact-us': {
+      id: '/contact-us'
+      path: '/contact-us'
+      fullPath: '/contact-us'
+      preLoaderRoute: typeof ContactUsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/admin/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
+    '/curriculum-activation-program': {
+      id: '/curriculum-activation-program'
+      path: '/curriculum-activation-program'
+      fullPath: '/curriculum-activation-program'
+      preLoaderRoute: typeof CurriculumActivationProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-do-i-apply': {
+      id: '/how-do-i-apply'
+      path: '/how-do-i-apply'
+      fullPath: '/how-do-i-apply'
+      preLoaderRoute: typeof HowDoIApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/professional-learning-pathways-and-support': {
+      id: '/professional-learning-pathways-and-support'
+      path: '/professional-learning-pathways-and-support'
+      fullPath: '/professional-learning-pathways-and-support'
+      preLoaderRoute: typeof ProfessionalLearningPathwaysAndSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/school-approval-process': {
+      id: '/school-approval-process'
+      path: '/school-approval-process'
+      fullPath: '/school-approval-process'
+      preLoaderRoute: typeof SchoolApprovalProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scsa-international': {
+      id: '/scsa-international'
+      path: '/scsa-international'
+      fullPath: '/scsa-international'
+      preLoaderRoute: typeof ScsaInternationalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scsa-international-team': {
+      id: '/scsa-international-team'
+      path: '/scsa-international-team'
+      fullPath: '/scsa-international-team'
+      preLoaderRoute: typeof ScsaInternationalTeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/start-teaching': {
+      id: '/start-teaching'
+      path: '/start-teaching'
+      fullPath: '/start-teaching'
+      preLoaderRoute: typeof StartTeachingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/the-scsa-and-sebwa': {
+      id: '/the-scsa-and-sebwa'
+      path: '/the-scsa-and-sebwa'
+      fullPath: '/the-scsa-and-sebwa'
+      preLoaderRoute: typeof TheScsaAndSebwaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/the-western-australian-curriculum': {
+      id: '/the-western-australian-curriculum'
+      path: '/the-western-australian-curriculum'
+      fullPath: '/the-western-australian-curriculum'
+      preLoaderRoute: typeof TheWesternAustralianCurriculumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wa-early-years-international-kindergarten-to-year-2': {
+      id: '/wa-early-years-international-kindergarten-to-year-2'
+      path: '/wa-early-years-international-kindergarten-to-year-2'
+      fullPath: '/wa-early-years-international-kindergarten-to-year-2'
+      preLoaderRoute: typeof WaEarlyYearsInternationalKindergartenToYear2RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wa-k-10-international-kindergarten-to-year-10': {
+      id: '/wa-k-10-international-kindergarten-to-year-10'
+      path: '/wa-k-10-international-kindergarten-to-year-10'
+      fullPath: '/wa-k-10-international-kindergarten-to-year-10'
+      preLoaderRoute: typeof WaK10InternationalKindergartenToYear10RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wace-international-years-11-and-12': {
+      id: '/wace-international-years-11-and-12'
+      path: '/wace-international-years-11-and-12'
+      fullPath: '/wace-international-years-11-and-12'
+      preLoaderRoute: typeof WaceInternationalYears11And12RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wam-international-year-12': {
+      id: '/wam-international-year-12'
+      path: '/wam-international-year-12'
+      fullPath: '/wam-international-year-12'
+      preLoaderRoute: typeof WamInternationalYear12RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/western-australia': {
+      id: '/western-australia'
+      path: '/western-australia'
+      fullPath: '/western-australia'
+      preLoaderRoute: typeof WesternAustraliaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/western-australian-curriculum-programs': {
+      id: '/western-australian-curriculum-programs'
+      path: '/western-australian-curriculum-programs'
+      fullPath: '/western-australian-curriculum-programs'
+      preLoaderRoute: typeof WesternAustralianCurriculumProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/why-us': {
+      id: '/why-us'
+      path: '/why-us'
+      fullPath: '/why-us'
+      preLoaderRoute: typeof WhyUsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/_authed': {
@@ -616,25 +609,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAuthedRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/_authed/': {
       id: '/admin/_authed/'
       path: '/'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminAuthedIndexRouteImport
-      parentRoute: typeof AdminAuthedRoute
-    }
-    '/admin/_authed/settings': {
-      id: '/admin/_authed/settings'
-      path: '/settings'
-      fullPath: '/admin/settings'
-      preLoaderRoute: typeof AdminAuthedSettingsRouteImport
-      parentRoute: typeof AdminAuthedRoute
-    }
-    '/admin/_authed/profile': {
-      id: '/admin/_authed/profile'
-      path: '/profile'
-      fullPath: '/admin/profile'
-      preLoaderRoute: typeof AdminAuthedProfileRouteImport
       parentRoute: typeof AdminAuthedRoute
     }
     '/admin/_authed/navigation': {
@@ -644,32 +630,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAuthedNavigationRouteImport
       parentRoute: typeof AdminAuthedRoute
     }
-    '/admin/_authed/users/': {
-      id: '/admin/_authed/users/'
-      path: '/users'
-      fullPath: '/admin/users/'
-      preLoaderRoute: typeof AdminAuthedUsersIndexRouteImport
+    '/admin/_authed/profile': {
+      id: '/admin/_authed/profile'
+      path: '/profile'
+      fullPath: '/admin/profile'
+      preLoaderRoute: typeof AdminAuthedProfileRouteImport
       parentRoute: typeof AdminAuthedRoute
     }
-    '/admin/_authed/submissions/': {
-      id: '/admin/_authed/submissions/'
-      path: '/submissions'
-      fullPath: '/admin/submissions/'
-      preLoaderRoute: typeof AdminAuthedSubmissionsIndexRouteImport
-      parentRoute: typeof AdminAuthedRoute
-    }
-    '/admin/_authed/pages/': {
-      id: '/admin/_authed/pages/'
-      path: '/pages'
-      fullPath: '/admin/pages/'
-      preLoaderRoute: typeof AdminAuthedPagesIndexRouteImport
-      parentRoute: typeof AdminAuthedRoute
-    }
-    '/admin/_authed/media/': {
-      id: '/admin/_authed/media/'
-      path: '/media'
-      fullPath: '/admin/media/'
-      preLoaderRoute: typeof AdminAuthedMediaIndexRouteImport
+    '/admin/_authed/settings': {
+      id: '/admin/_authed/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminAuthedSettingsRouteImport
       parentRoute: typeof AdminAuthedRoute
     }
     '/admin/_authed/fragments/': {
@@ -679,18 +651,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAuthedFragmentsIndexRouteImport
       parentRoute: typeof AdminAuthedRoute
     }
-    '/admin/_authed/users/new': {
-      id: '/admin/_authed/users/new'
-      path: '/users/new'
-      fullPath: '/admin/users/new'
-      preLoaderRoute: typeof AdminAuthedUsersNewRouteImport
+    '/admin/_authed/fragments/$key': {
+      id: '/admin/_authed/fragments/$key'
+      path: '/fragments/$key'
+      fullPath: '/admin/fragments/$key'
+      preLoaderRoute: typeof AdminAuthedFragmentsKeyRouteImport
       parentRoute: typeof AdminAuthedRoute
     }
-    '/admin/_authed/submissions/$id': {
-      id: '/admin/_authed/submissions/$id'
-      path: '/submissions/$id'
-      fullPath: '/admin/submissions/$id'
-      preLoaderRoute: typeof AdminAuthedSubmissionsIdRouteImport
+    '/admin/_authed/media/': {
+      id: '/admin/_authed/media/'
+      path: '/media'
+      fullPath: '/admin/media/'
+      preLoaderRoute: typeof AdminAuthedMediaIndexRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/pages/': {
+      id: '/admin/_authed/pages/'
+      path: '/pages'
+      fullPath: '/admin/pages/'
+      preLoaderRoute: typeof AdminAuthedPagesIndexRouteImport
       parentRoute: typeof AdminAuthedRoute
     }
     '/admin/_authed/pages/$slug': {
@@ -700,11 +679,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAuthedPagesSlugRouteImport
       parentRoute: typeof AdminAuthedRoute
     }
-    '/admin/_authed/fragments/$key': {
-      id: '/admin/_authed/fragments/$key'
-      path: '/fragments/$key'
-      fullPath: '/admin/fragments/$key'
-      preLoaderRoute: typeof AdminAuthedFragmentsKeyRouteImport
+    '/admin/_authed/submissions/': {
+      id: '/admin/_authed/submissions/'
+      path: '/submissions'
+      fullPath: '/admin/submissions/'
+      preLoaderRoute: typeof AdminAuthedSubmissionsIndexRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/submissions/$id': {
+      id: '/admin/_authed/submissions/$id'
+      path: '/submissions/$id'
+      fullPath: '/admin/submissions/$id'
+      preLoaderRoute: typeof AdminAuthedSubmissionsIdRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/users/': {
+      id: '/admin/_authed/users/'
+      path: '/users'
+      fullPath: '/admin/users/'
+      preLoaderRoute: typeof AdminAuthedUsersIndexRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/users/new': {
+      id: '/admin/_authed/users/new'
+      path: '/users/new'
+      fullPath: '/admin/users/new'
+      preLoaderRoute: typeof AdminAuthedUsersNewRouteImport
       parentRoute: typeof AdminAuthedRoute
     }
   }

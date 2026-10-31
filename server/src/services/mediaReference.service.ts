@@ -19,8 +19,7 @@ function deepContainsId(value: unknown, id: string): boolean {
 }
 
 export type MediaReference =
-  | { kind: "page"; slug: string; title: string }
-  | { kind: "siteSettings" };
+  { kind: "page"; slug: string; title: string } | { kind: "siteSettings" };
 
 export async function findMediaReferences(mediaAssetId: string): Promise<MediaReference[]> {
   const references: MediaReference[] = [];
